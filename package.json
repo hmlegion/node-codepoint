@@ -1,0 +1,28 @@
+{
+  "name": "codepoint",
+  "version": "0.0.0-pre",
+  "description": "Utilities for Unicode codepoint",
+  "keywords": [
+    "unicode",
+    "utf-16",
+    "code point"
+  ],
+  "homepage": "https://github.com/koichik/node-codepoint/",
+  "author": "Koichi Kobayashi <koichik@improvement.jp>",
+  "licenses": {
+    "type": "The MIT License",
+    "url": "http://www.opensource.org/licenses/mit-license.php"
+  },
+  "repositories": "https://github.com/koichik/node-codepoint.git",
+  "main": "./codepoint.js",
+  "engines": {
+    "node": "*"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "expect.js": "*"
+  },
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha"
+  }
+}
