@@ -1,4 +1,4 @@
-# node-codepoint - Utitilities for Unicode code point based on Java API.
+# Utitilities for Unicode code point based on Java API.
 
 In this module, _Unicode code point_ is used for character values in the
 range between `0x0000` and `0x10FFFF`.

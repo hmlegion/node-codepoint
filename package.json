@@ -1,6 +1,6 @@
 {
   "name": "codepoint",
-  "version": "0.0.0-pre",
+  "version": "0.0.0",
   "description": "Utilities for Unicode codepoint",
   "keywords": [
     "unicode",
