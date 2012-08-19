@@ -83,7 +83,7 @@ Otherwise, the function returns `1`.
 Example:
 
 ```javascript
-codepoint.charCount(0x41)    // code point of 'A' => 1
+codepoint.charCount(0x41)    // code point of 'A'  => 1
 codepoint.charCount(0x20B9F) // code point of '𠮟' => 2
 ```
 
@@ -108,8 +108,8 @@ Example:
 
 ```javascript
 var str = 'A𠮟'; // '\u0041\uD842\uDF9F'
-codepoint.codePointAt(str);    // => 65 (0x41, code point of 'A')
-codepoint.codePointAt(str, 1); // => 134047 (0x20B9F, code point of '𠮟')
+codepoint.codePointAt(str);    // => 0x41    (code point of 'A')
+codepoint.codePointAt(str, 1); // => 0x20B9F (code point of '𠮟')
 ```
 
 ### codepoint.codePointBefore(str [, index])
@@ -133,8 +133,8 @@ Example:
 
 ```javascript
 var str = 'A𠮟'; // '\u0041\uD842\uDF9F'
-codepoint.codePointBefore(str);    // => 134047 (0x20B9F, code point of '𠮟')
-codepoint.codePointBefore(str, 1); // => 65 (0x41, code point of 'A')
+codepoint.codePointBefore(str);    // => 0x20B9F (code point of '𠮟')
+codepoint.codePointBefore(str, 1); // => 0x41    (code point of 'A')
 ```
 
 ### codepoint.codePointCount(str [, beginIndex [, endIndex]])
@@ -227,7 +227,7 @@ an unspecified code unit is returned.
 Example:
 
 ```javascript
-codepoint.highSurrogate(0x20B9F); // code point of '𠮟' => 55362 (0xD842)
+codepoint.highSurrogate(0x20B9F); // code point of '𠮟' => 0xD842
 ```
 
 ### codepoint.isBmpCodePoint(cp)
@@ -245,7 +245,7 @@ single code unit.
 Example:
 
 ```javascript
-codepoint.isBmpCodePoint(0x41);    // code point of 'A' => true
+codepoint.isBmpCodePoint(0x41);    // code point of 'A'  => true
 codepoint.isBmpCodePoint(0x20B9F); // code point of '𠮟' => false
 ```
 
@@ -263,9 +263,9 @@ code unit (also known as leading-surrogate code unit).
 Example:
 
 ```javascript
-codepoint.isHighSurrogate(0x41);   // code unit of 'A' => false
+codepoint.isHighSurrogate(0x41);   // code unit of 'A'       => false
 codepoint.isHighSurrogate(0xD842); // high surrogate of '𠮟' => true
-codepoint.isHighSurrogate(0xDF9F); // low surrogate of '𠮟' => false
+codepoint.isHighSurrogate(0xDF9F); // low  surrogate of '𠮟' => false
 ```
 
 ### codepoint.isLowSurrogate(cu)
@@ -282,9 +282,9 @@ code unit (also known as trailing-surrogate code unit).
 Example:
 
 ```javascript
-codepoint.isLowSurrogate(0x41);   // code unit of 'A' => false
+codepoint.isLowSurrogate(0x41);   // code unit of 'A'       => false
 codepoint.isLowSurrogate(0xD842); // high surrogate of '𠮟' => false
-codepoint.isLowSurrogate(0xDF9F); // low surrogate of '𠮟' => true
+codepoint.isLowSurrogate(0xDF9F); // low  surrogate of '𠮟' => true
 ```
 
 ### codepoint.isSupplementaryCodePoint(cp)
@@ -302,7 +302,7 @@ character range.
 Example:
 
 ```javascript
-codepoint.isSupplementaryCodePoint(0x41);    // code point of 'A' => false
+codepoint.isSupplementaryCodePoint(0x41);    // code point of 'A'  => false
 codepoint.isSupplementaryCodePoint(0x20B9F); // code point of '𠮟' => true
 ```
 
@@ -319,9 +319,9 @@ Determines if the given Unicode code unit is a Unicode surrogate code unit.
 Example:
 
 ```javascript
-codepoint.isSurrogate(0x41);   // code unit of 'A' => false
+codepoint.isSurrogate(0x41);   // code unit of 'A'       => false
 codepoint.isSurrogate(0xD842); // high surrogate of '𠮟' => true
-codepoint.isSurrogate(0xDF9F); // low surrogate of '𠮟' => true
+codepoint.isSurrogate(0xDF9F); // low  surrogate of '𠮟' => true
 ```
 
 ### codepoint.isSurrogatePair(highCu, lowCu)
@@ -387,7 +387,7 @@ codepoint.offsetByCodePoints(str, 0, 0); // => 0 (index of 'A')
 codepoint.offsetByCodePoints(str, 0, 1); // => 1 (index of '𠮟')
 codepoint.offsetByCodePoints(str, 0, 2); // => 3 (index of 'B')
 
-codepoint.offsetByCodePoints(str, 4, 0); // => 4 (index of after 'B')
+codepoint.offsetByCodePoints(str, 4, 0);  // => 4 (index of after 'B')
 codepoint.offsetByCodePoints(str, 4, -1); // => 3 (index of after '𠮟')
 codepoint.offsetByCodePoints(str, 4, -2); // => 1 (index of after 'A')
 ```
@@ -408,6 +408,7 @@ code point, the resulting array has the corresponding surrogate pair.
 Example:
 
 ```javascript
+codepoint.toChars(0x41);    // code point of 'A'  => [ 0x41 ]
 codepoint.toChars(0x20B9F); // code point of '𠮟' => [ 0xD842, 0xDF9F ]
 ```
 
